@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cat Clicker</title>
+    <style>
+        button{
+            outline: none;
+        }
+        html{
+           
+            background-size: cover;
+            background: rgba(119, 123, 132,0.3);
+        }
+        h1{
+            padding-left: 45%;
+        }
+        p{
+            color:white; font-size: 20px; display: inline;
+
+        }
+        span{
+            display: block;
+            margin: auto;
+        }
+        .container{
+            border: solid 3px black;
+            padding: 2%;
+            margin: 20px;
+            font-family: 'Courier New', Courier, monospace; 
+            
+        }
+        .counter{
+             padding: 10px;
+             display: inline-block;
+             border: none;
+        }
+        .cat {
+            height: 400px;
+            width: 500px;
+            margin: auto;
+            border: dotted rgb(116, 12, 220) 3px;
+            border-radius: 10%;
+            transition: 500ms;
+            margin-bottom: 10px;
+            
+        }
+        .cat img{
+            display: flex;
+            border: 1px solid black;
+            padding: 0;
+            margin: auto;
+            max-width: 100%;
+            max-height: 80%;
+        }
+       
+        .cat-group button{
+            font-family: monospace;
+            display: span;
+            cursor: pointer;
+            width: 40%;
+            margin: auto;
+            padding: 1%;
+
+        }
+
+        .cat-group button:hover{
+            border: solid 1px black;
+            background: red;
+            opacity: 0.4;
+            color: white;
+            transition: 0.6s;
+            border-radius: 15px;
+            
+        } 
+        .cat-group button:not(:last-child) {
+            border-bottom: none; /* Prevent double borders */
+        }    
+    
+    </style>
+</head>
+<body>
+    <h1>Cat Clicker</h1>    
+    <div class="container">
+        <div class="cat" id="cat-box">
+            <img src="https://free.thesecurityawarenesscompany.com/wp-content/uploads/edd/2016/04/SC_Watching.jpg" alt="">
+        </div>
+
+        <div class="cat-group">
+            <span><button id="cat1">cat1</button>
+            <div class="counter" id="counter1">counter1</div></span>
+            <span><button id="cat2">cat2</button>
+                <div class="counter" id="counter2">counter4</div></span>
+                <span><button id="cat3">cat3</button>
+                    <div class="counter" id="counter3">counter3</div></span>
+                    <span><button id="cat4">cat4</button>
+                        <div class="counter" id="counter4">counter4</div></span>
+                        <span><button id="cat5">cat5</button>
+                            <div class="counter" id="counter5">counter5</div></span>
+        </div>
+        
+    </div>
+
+    <script>
+        const cats = [
+            {
+                name: "cat1",
+                link: "https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+            },
+            {
+                name: "cat2",
+                link: "https://www.petmd.com/sites/default/files/the-cat-which-sleeps-picture-id596060186.jpg"
+            },
+            {
+                name: "cat3",
+                link: "http://r.ddmcdn.com/s_f/o_1/cx_462/cy_245/cw_1349/ch_1349/w_720/APL/uploads/2015/06/caturday-shutterstock_149320799.jpg"
+            },
+            {
+                name: "cat4",
+                link: "https://images.pexels.com/photos/9413/animal-cute-kitten-cat.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+            },
+            {
+                name: "cat5",
+                link: "https://i.redd.it/2vzswjyncpp31.jpg"
+            },
+        ];
+        
+        function displayCat(e){
+            
+            const id  = Number(e.srcElement.id.substring(3));
+              switch(id) { 
+                case 1: image.src = cats[0].link;
+                counters[0].textContent = String(ar[0]++);
+                break;
+                case 2: image.src = cats[1].link;
+                counters[1].textContent = String(ar[1]++);
+                break;
+                case 3: image.src = cats[2].link;
+                counters[2].textContent = String(ar[2]++);
+                break;
+                case 4: image.src = cats[3].link;
+                counters[3].textContent = String(ar[3]++);
+                break;
+                case 5: image.src = cats[4].link;
+                counters[4].textContent = String(ar[4]++);
+                break;
+                default:return;
+              }
+             
+        }
+
+        const image = document.querySelector('img');
+        let ar = [1,1,1,1,1];
+        const buttons = document.querySelector('.cat-group').getElementsByTagName('button');
+        const counters = document.querySelectorAll(".counter")
+
+        for(let i = 0 ; i < buttons.length; i++)
+        {
+            buttons[i].addEventListener('click', displayCat);
+        }
+    
+    </script>
+
+
+</body>
+</html>
