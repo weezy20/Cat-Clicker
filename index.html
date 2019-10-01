@@ -41,7 +41,6 @@
             height: 400px;
             width: 500px;
             margin: auto;
-            border: dotted rgb(116, 12, 220) 3px;
             border-radius: 10%;
             transition: 500ms;
             margin-bottom: 10px;
@@ -49,11 +48,14 @@
         }
         .cat img{
             display: flex;
-            border: 1px solid black;
+            border: dotted rgb(116, 12, 220) 3px;
             padding: 0;
             margin: auto;
             max-width: 100%;
             max-height: 80%;
+        }
+        .cat img:focus{
+            opacity: 0.1;
         }
        
         .cat-group button{
@@ -86,6 +88,7 @@
     <div class="container">
         <div class="cat" id="cat-box">
             <img src="https://free.thesecurityawarenesscompany.com/wp-content/uploads/edd/2016/04/SC_Watching.jpg" alt="">
+            <h1></h1>
         </div>
 
         <div class="cat-group">
@@ -106,23 +109,23 @@
     <script>
         const cats = [
             {
-                name: "cat1",
+                name: "joey",
                 link: "https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
             },
             {
-                name: "cat2",
+                name: "markov",
                 link: "https://www.petmd.com/sites/default/files/the-cat-which-sleeps-picture-id596060186.jpg"
             },
             {
-                name: "cat3",
+                name: "meehu",
                 link: "http://r.ddmcdn.com/s_f/o_1/cx_462/cy_245/cw_1349/ch_1349/w_720/APL/uploads/2015/06/caturday-shutterstock_149320799.jpg"
             },
             {
-                name: "cat4",
+                name: "zoera",
                 link: "https://images.pexels.com/photos/9413/animal-cute-kitten-cat.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
             },
             {
-                name: "cat5",
+                name: "octobre",
                 link: "https://i.redd.it/2vzswjyncpp31.jpg"
             },
         ];
@@ -133,17 +136,22 @@
               switch(id) { 
                 case 1: image.src = cats[0].link;
                 counters[0].textContent = String(ar[0]++);
+                name.textContent = cats[0].name;
                 break;
                 case 2: image.src = cats[1].link;
+                name.textContent = cats[1].name;
                 counters[1].textContent = String(ar[1]++);
                 break;
                 case 3: image.src = cats[2].link;
+                name.textContent = cats[2].name;
                 counters[2].textContent = String(ar[2]++);
                 break;
                 case 4: image.src = cats[3].link;
+                name.textContent = cats[3].name;
                 counters[3].textContent = String(ar[3]++);
                 break;
                 case 5: image.src = cats[4].link;
+                name.textContent = cats[4].name;
                 counters[4].textContent = String(ar[4]++);
                 break;
                 default:return;
@@ -152,8 +160,9 @@
         }
 
         const image = document.querySelector('img');
+        const name = document.querySelector('.container > #cat-box > h1');
         let ar = [1,1,1,1,1];
-        const buttons = document.querySelector('.cat-group').getElementsByTagName('button');
+        const buttons = document.querySelectorAll('.cat-group > span > button');
         const counters = document.querySelectorAll(".counter")
 
         for(let i = 0 ; i < buttons.length; i++)
