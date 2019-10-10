@@ -133,29 +133,9 @@
         function displayCat(e){
             
             const id  = Number(e.srcElement.id.substring(3));
-              switch(id) { 
-                case 1: image.src = cats[0].link;
-                counters[0].textContent = String(ar[0]++);
-                name.textContent = cats[0].name;
-                break;
-                case 2: image.src = cats[1].link;
-                name.textContent = cats[1].name;
-                counters[1].textContent = String(ar[1]++);
-                break;
-                case 3: image.src = cats[2].link;
-                name.textContent = cats[2].name;
-                counters[2].textContent = String(ar[2]++);
-                break;
-                case 4: image.src = cats[3].link;
-                name.textContent = cats[3].name;
-                counters[3].textContent = String(ar[3]++);
-                break;
-                case 5: image.src = cats[4].link;
-                name.textContent = cats[4].name;
-                counters[4].textContent = String(ar[4]++);
-                break;
-                default:return;
-              }
+            image.src = cats[id].link;
+            name.textContent = cats[id].name;
+            counters[id].textContent = String(ar[id]++);
              
         }
 
